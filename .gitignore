@@ -1,0 +1,5 @@
+/node_modules/
+/.idea/.gitignore
+/.idea/modules.xml
+/.idea/nodejs-neo4j-crud-.iml
+/.idea/vcs.xml

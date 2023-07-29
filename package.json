@@ -1,0 +1,37 @@
+{
+  "name": "qualicorp-backend",
+  "version": "1.0.0",
+  "description": "nodeJS, restify and restfull with neo4j",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "jest"
+  },
+  "bugs": {
+    "url": "https://github.com/Aoliveiradev/nodejs-neo4j-crud/issues"
+  },
+  "homepage": "https://github.com/Aoliveiradev/nodejs-neo4j-crud#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aoliveiradev/nodejs-neo4j-crud.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "jest-mock": "^29.6.2",
+    "neo4j": "^2.0.0-RC2",
+    "neo4j-driver": "^5.11.0",
+    "restify": "^9.1.0",
+    "restify-router": "^0.6.2",
+    "uuid": "^9.0.0"
+  },
+  "engines": {
+    "node": "10.24.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "babel-jest": "^29.6.2",
+    "jest": "24.9.0 ",
+    "supertest": "^6.3.3"
+  }
+}
