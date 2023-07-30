@@ -1,4 +1,4 @@
-# Projeto Horário de Entrada e Saída
+# Projeto Qualicorp-backend-nodeJS-neo4j-restify-restfull
 
 Este projeto é uma aplicação simples para gerenciar horários de entrada e saída de usuários. A aplicação utiliza o Node.js com o framework Restify e o banco de dados Neo4j para armazenar os dados dos usuários e seus respectivos horários.
 
