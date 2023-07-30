@@ -1,7 +1,6 @@
 const request = require('supertest');
 const server = require('../app');
 const userController = require('../controller/userController');
-const timeModel = require("../model/timeModel");
 
 
 const mockUserController = jest.fn();
