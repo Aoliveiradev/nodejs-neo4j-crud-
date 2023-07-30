@@ -76,3 +76,16 @@ Melhorar o tratamento de erros e mensagens de erro para fornecer informações m
 Adicionar mais funcionalidades à aplicação, como a possibilidade de atualizar os horários de entrada e saída e obter relatórios de horas trabalhadas por período.
 Implementar testes de integração para garantir a integridade das rotas e suas interações com o banco de dados.
 Este projeto tem como objetivo fornecer uma base inicial para a gestão de horários de entrada e saída de usuários, mas é importante lembrar que pode ser expandido e melhorado de acordo com as necessidades específicas do seu caso de uso.
+
+# Dificuldades e Facilidades
+Durante o desenvolvimento deste projeto, algumas dificuldades foram encontradas e superadas com dedicação e pesquisa. As principais dificuldades incluíram:
+
+Configuração do Ambiente: No início do projeto, foi necessário configurar corretamente o ambiente de desenvolvimento, incluindo a instalação das dependências do Node.js 10.24.1, Restify 9.1.0 e Neo4j 2.0.0, neo4j-driver 5.11.0. Além disso, foi preciso garantir que o banco de dados Neo4j estivesse configurado adequadamente com as variáveis de ambiente corretas.
+
+Integração do Neo4j com o Node.js: Integrar o banco de dados Neo4j com o Node.js foi um desafio. Foi necessário aprender a utilizar o pacote neo4j-driver para estabelecer a conexão com o banco de dados e realizar operações usando a linguagem Cypher. Com a pesquisas e leitura da documentação, foi possível compreender a estrutura e sintaxe das consultas Cypher e executar operações CRUD no banco de dados.
+
+Criação das Rotas e Controllers: A criação das rotas e controllers para as funcionalidades de cadastro de usuários e horários de entrada e saída exigiu um entendimento claro do fluxo de dados e da lógica de negócio. A utilização do framework Restify facilitou a organização das rotas e a definição dos endpoints para as diferentes funcionalidades.
+
+Testes Unitários: Foi fundamental implementar testes unitários para verificar o correto funcionamento das funcionalidades. A biblioteca Jest em conjunto com Supertest foi utilizada para criar testes que validassem as respostas das requisições e o comportamento esperado das funções.
+
+Tratamento de Erros: Garantir o tratamento adequado de erros e a geração de mensagens de erro claras foi uma preocupação constante. Foi importante implementar respostas adequadas para as requisições, informando o estado correto da aplicação em caso de sucesso ou falha, todavia é necessário ter um olhar mais cuidadoso com o tratamento de errors para quando for consumido pelo front-end.
