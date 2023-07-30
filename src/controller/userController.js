@@ -1,4 +1,4 @@
-const userModel = require('../model/user');
+const userModel = require('../model/userModel');
 
 function createUser(req, res, next) {
     const { name, email, password } = req.body;
@@ -20,7 +20,7 @@ function getUsers(req, res, next) {
             return next();
         })
         .catch((error) => {
-            res.send(500, { error: 'Erro ao obter usuários do banco de dados' });
+            res.send(400, { error: 'Erro ao obter usuários do banco de dados' });
             return next(error);
         });
 }
@@ -43,8 +43,10 @@ function getUserById(req, res, next) {
         });
 }
 
+
+
 module.exports = {
     createUser,
     getUsers,
-    getUserById,
+    getUserById
 };

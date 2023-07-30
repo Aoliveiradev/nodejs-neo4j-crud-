@@ -1,6 +1,6 @@
 const request = require('supertest');
 const server = require('../../app');
-const userModel = require('../../model/user');
+const userModel = require('../../model/userModel');
 const { v4: uuidv4 } = require('uuid');
 jest.mock('../../model/user');
 
