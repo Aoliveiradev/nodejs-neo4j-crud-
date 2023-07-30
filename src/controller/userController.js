@@ -1,27 +1,22 @@
-const userModel = require('../model/user')
+const userModel = require('../model/user');
+
 function createUser(req, res, next) {
     const { name, email, password } = req.body;
-
     userModel.createUser(name, email, password)
         .then(user => {
-            res.send(201, { user: user });
+            res.send(201, { user });
             return next();
         })
         .catch(err => {
-            res.send(400, { error: err.message });
+            res.send(400, { error: 'Erro ao criar usuário' });
             return next(err);
         });
 }
+
 function getUsers(req, res, next) {
     userModel.getUsers()
         .then((result) => {
-            const users = result.map((record) => {
-                const user = record.get('n').properties;
-                return { id: user.id, name: user.name };
-            });
-
-            const response = { Users: users };
-            res.send(200, response);
+            res.send(200, result);
             return next();
         })
         .catch((error) => {
@@ -33,7 +28,7 @@ function getUsers(req, res, next) {
 function getUserById(req, res, next) {
     const userId = req.params.id;
 
-    userModel.getUserById(userId)
+    userModel.findById(userId)
         .then((user) => {
             if (!user) {
                 res.send(404, { error: 'Usuário não encontrado' });
@@ -43,7 +38,7 @@ function getUserById(req, res, next) {
             return next();
         })
         .catch((error) => {
-            res.send(500, { error: 'Erro ao obter usuário do banco de dados' });
+            res.send(500, { error: 'Usuário não encontrado' });
             return next(error);
         });
 }
