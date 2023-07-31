@@ -71,6 +71,20 @@ Exemplo de requisição:
 
 A resposta será uma mensagem indicando que o horário foi excluído com sucesso.
 
+### 7.Edição de Horário
+Permite excluir um horário de entrada e saída de um usuário pelo seu ID através da rota `/times` utilizando o método `PUT`. 
+
+Exemplo de requisição:
+
+`http://localhost:5000/times` passando um json com
+{ 
+    "timeId": "8f9a9836-e6f5-426a-84af-2684bf787687",
+    "entryTime": "00:00", 
+    "exitTime": "01:01" 
+}
+
+A resposta será uma mensagem indicando que o horário foi editado com sucesso.
+
 # Testes Unitários
 Foram implementados testes unitários utilizando a biblioteca Jest e o Supertest para garantir o correto funcionamento das rotas e dos controllers. Os testes estão organizados em diferentes suítes de teste para cada rota e controller da aplicação.
 
