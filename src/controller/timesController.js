@@ -1,17 +1,29 @@
 const userModel = require('../model/userModel');
 const timeModel = require('../model/timeModel');
+const jwt = require("jsonwebtoken");
+const JWT_SECRET_KEY = process.env.JWTKEY;
+
+
 const saveEntryExitTime = async (req, res) => {
-    const { userId, entryTime, exitTime } = req.body;
+    const { entryTime, exitTime } = req.body;
+    const token = req.headers.authorization;
 
-    const user = await userModel.findById(userId);
-
-    if (!user) {
-        return res.send(404, { error: 'Usuário não encontrado' });
+    if (!token) {
+        res.send(401, { error: 'Token de autenticação não fornecido' });
+        return;
     }
 
+    jwt.verify(token, JWT_SECRET_KEY, (err, decoded) => {
+        if (err) {
+
+            return res.send(401, { error: 'Token de autenticação inválido' });
+        }
+
+        req.userId = decoded.userId;
+    });
 
     try {
-        const result = await timeModel.saveEntryExitTime(userId, entryTime, exitTime);
+        const result = await timeModel.saveEntryExitTime(req.userId, entryTime, exitTime);
         res.send(201, {
             time: result,
             message: 'Horário de entrada e saída salvo com sucesso' });
@@ -77,5 +89,5 @@ module.exports = {
     saveEntryExitTime,
     getEntryExitTimesByDate,
     deleteEntryExitTimeById,
-    getEntryExitTimesById
+    getEntryExitTimesById,
 };
