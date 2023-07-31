@@ -83,6 +83,17 @@ const deleteEntryExitTimeById = async (req, res) => {
     } catch (error) {
         res.send(404, { error: 'Erro ao excluir horário de entrada e saída' });
     }
+
+};
+const editEntryExitTimesById = async (req, res) => {
+    const {timeId, entryTime, exitTime } = req.body;
+
+        try {
+            await timeModel.editEntryExitTimeById(timeId, entryTime, exitTime);
+            res.send(200, { message: 'Horário de entrada e saída editado com sucesso' });
+        } catch (error) {
+            res.send(404, { error: 'Erro ao editar horário de entrada e saída' });
+        }
 };
 
 module.exports = {
@@ -90,4 +101,6 @@ module.exports = {
     getEntryExitTimesByDate,
     deleteEntryExitTimeById,
     getEntryExitTimesById,
+    editEntryExitTimesById,
+
 };

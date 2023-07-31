@@ -1,5 +1,5 @@
 const neo4j = require('neo4j-driver');
-const { v4: uuidv4 } = require('uuid');
+const {v4: uuidv4} = require('uuid');
 
 const driver = neo4j.driver(
     `neo4j+s://${process.env.NEO4J_URI}`,
@@ -55,6 +55,7 @@ const Time = {
             await session.close();
         }
     },
+
     getEntryExitTimesByDate: async (userId, date) => {
         const session = driver.session();
 
@@ -90,6 +91,25 @@ const Time = {
             await session.close();
         }
     },
+
+    editEntryExitTimeById: async (timeId, entryTime, exitTime) => {
+        const session = driver.session();
+
+        try {
+            await session.run(
+                `MATCH (user:User)-[r:HAS_TIME]->(time:Time {id: $timeId})
+                       SET time.entryTime = $entryTime, time.exitTime = $exitTime
+                       RETURN user, time`,
+                {
+                    timeId: timeId,
+                    entryTime: entryTime,
+                    exitTime: exitTime
+                }
+            );
+        } finally {
+            await session.close();
+        }
+    }
 };
 
 module.exports = Time;
