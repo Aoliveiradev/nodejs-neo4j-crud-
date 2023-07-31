@@ -94,10 +94,11 @@ Os testes abordam cenários de sucesso e de erro, verificando as respostas das r
 Implementar autenticação e autorização para proteger as rotas sensíveis.
 Implementar validação dos dados enviados nas requisições para evitar erros e garantir a integridade dos dados no banco de dados.
 Melhorar o tratamento de erros e mensagens de erro para fornecer informações mais detalhadas em caso de falhas.
-Adicionar mais funcionalidades à aplicação, como a possibilidade de atualizar os horários de entrada e saída e obter relatórios de horas trabalhadas por período.
+Adicionar mais funcionalidades à aplicação, como a possibilidade de obter relatórios de horas trabalhadas por período.
 Implementar testes de integração para garantir a integridade das rotas e suas interações com o banco de dados.
 Este projeto tem como objetivo fornecer uma base inicial para a gestão de horários de entrada e saída de usuários, mas é importante lembrar que pode ser expandido e melhorado de acordo com as necessidades específicas do seu caso de uso.
-Finalizar os testes unitários das novas implementações que não foram cobertos
+Pontos cruciais.
+*Finalizar os testes unitários das novas implementações que não foram cobertos
 
 # Dificuldades e Facilidades
 Durante o desenvolvimento deste projeto, algumas dificuldades foram encontradas e superadas com dedicação e pesquisa. As principais dificuldades incluíram:
