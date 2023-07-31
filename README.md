@@ -55,7 +55,14 @@ Permite listar os horários de entrada e saída de um usuário por data específ
 
 A resposta será uma lista com os horários de entrada e saída do usuário para a data informada.
 
-### 5.Exclusão de Horário
+### 5. Listagem de Horários por usuario
+Permite listar os horários de entrada e saída de um usuário por data específica através da rota /times/:userId/:date utilizando o método GET. Exemplo de requisição:
+
+`GET http://localhost:5000/times/de62b16e-3fd1-4ec4-885b-2fab2c7cd9b2`
+
+A resposta será uma lista com os horários de entrada e saída do usuário.
+
+### 6.Exclusão de Horário
 Permite excluir um horário de entrada e saída de um usuário pelo seu ID através da rota `/times/:userId/:timeId` utilizando o método `DELETE`. 
 
 Exemplo de requisição:
@@ -76,6 +83,7 @@ Melhorar o tratamento de erros e mensagens de erro para fornecer informações m
 Adicionar mais funcionalidades à aplicação, como a possibilidade de atualizar os horários de entrada e saída e obter relatórios de horas trabalhadas por período.
 Implementar testes de integração para garantir a integridade das rotas e suas interações com o banco de dados.
 Este projeto tem como objetivo fornecer uma base inicial para a gestão de horários de entrada e saída de usuários, mas é importante lembrar que pode ser expandido e melhorado de acordo com as necessidades específicas do seu caso de uso.
+Finalizar os testes unitários das novas implementações que não foram cobertos
 
 # Dificuldades e Facilidades
 Durante o desenvolvimento deste projeto, algumas dificuldades foram encontradas e superadas com dedicação e pesquisa. As principais dificuldades incluíram:
