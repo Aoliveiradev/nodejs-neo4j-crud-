@@ -10,8 +10,6 @@ describe('Testes da rota /times', () => {
     test('Deve criar um novo horário de entrada e saída', async () => {
         const userData = {
             id: 'de62b16e-3fd1-4ec4-885b-2fab2c7cd9b2',
-            name: 'Alice',
-            email: 'alice@example.com',
         };
 
         const timeData = {
@@ -20,18 +18,17 @@ describe('Testes da rota /times', () => {
             exitTime: '17:00',
         };
 
-        userModel.findById.mockResolvedValue(userData);
+        userModel.findById.mockResolvedValue(userData.id);
         timeModel.saveEntryExitTime.mockResolvedValue({
             id: uuidv4(),
             userId: userData.id,
-            date: '2023-07-30',
             entryTime: timeData.entryTime,
             exitTime: timeData.exitTime,
         });
 
         const response = await request(server)
             .post('/times')
-            .send(timeData);
+            .send(timeData, {});
 
         expect(response.status).toBe(201);
         expect(response.body.message).toBe('Horário de entrada e saída salvo com sucesso');
