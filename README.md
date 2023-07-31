@@ -80,7 +80,7 @@ Este projeto tem como objetivo fornecer uma base inicial para a gestão de horá
 # Dificuldades e Facilidades
 Durante o desenvolvimento deste projeto, algumas dificuldades foram encontradas e superadas com dedicação e pesquisa. As principais dificuldades incluíram:
 
-Configuração do Ambiente: No início do projeto, foi necessário configurar corretamente o ambiente de desenvolvimento, incluindo a instalação das dependências do Node.js 10.24.1, Restify 9.1.0 e Neo4j 2.0.0, neo4j-driver 5.11.0. Além disso, foi preciso garantir que o banco de dados Neo4j estivesse configurado adequadamente com as variáveis de ambiente corretas.
+Configuração do Ambiente: No início do projeto, foi necessário configurar corretamente o ambiente de desenvolvimento, incluindo a instalação das dependências do Node.js 10.24.1, Restify 9.1.0(houve um downgrade de versão por causa do node 10x) e Neo4j 2.0.0, neo4j-driver 5.11.0. Além disso, foi preciso garantir que o banco de dados Neo4j estivesse configurado adequadamente com as variáveis de ambiente corretas.
 
 Integração do Neo4j com o Node.js: Integrar o banco de dados Neo4j com o Node.js foi um desafio. Foi necessário aprender a utilizar o pacote neo4j-driver para estabelecer a conexão com o banco de dados e realizar operações usando a linguagem Cypher. Com a pesquisas e leitura da documentação, foi possível compreender a estrutura e sintaxe das consultas Cypher e executar operações CRUD no banco de dados.
 
