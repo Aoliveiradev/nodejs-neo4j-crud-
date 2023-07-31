@@ -39,6 +39,23 @@ const getEntryExitTimesByDate = async (req, res) => {
     }
 };
 
+const getEntryExitTimesById = async (req, res) => {
+    const userId = req.params.userId;
+
+    const user = await userModel.findById(userId);
+
+    if (!user) {
+        return res.send(404, { error: 'Usuário não encontrado' });
+    }
+
+    try {
+        const entryExitTimes = await timeModel.getEntryExitTimesByUserId(userId);
+        res.send(200, { entryExitTimes });
+    } catch (error) {
+        res.send(404, { error: 'Erro ao obter horas de entrada e saída' });
+    }
+};
+
 const deleteEntryExitTimeById = async (req, res) => {
     const userId = req.params.userId;
     const timeId = req.params.timeId;
@@ -59,5 +76,6 @@ const deleteEntryExitTimeById = async (req, res) => {
 module.exports = {
     saveEntryExitTime,
     getEntryExitTimesByDate,
-    deleteEntryExitTimeById
+    deleteEntryExitTimeById,
+    getEntryExitTimesById
 };

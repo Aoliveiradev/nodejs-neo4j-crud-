@@ -38,6 +38,23 @@ const Time = {
         }
     },
 
+    getEntryExitTimesByUserId: async (userId) => {
+        const session = driver.session();
+
+        try {
+            const result = await session.run(
+                `MATCH (user:User {id: $userId})-[:HAS_TIME]->(time:Time)
+                RETURN time`,
+                {
+                    userId: userId,
+                }
+            );
+
+            return result.records.map((record) => record.get('time').properties);
+        } finally {
+            await session.close();
+        }
+    },
     getEntryExitTimesByDate: async (userId, date) => {
         const session = driver.session();
 

@@ -5,5 +5,6 @@ const timeController = require('../controller/timesController');
 router.post('', timeController.saveEntryExitTime);
 router.get('/:userId/:date', timeController.getEntryExitTimesByDate);
 router.del('/:userId/:timeId', timeController.deleteEntryExitTimeById);
+router.get('/:userId', timeController.getEntryExitTimesById);
 
 module.exports = router;
